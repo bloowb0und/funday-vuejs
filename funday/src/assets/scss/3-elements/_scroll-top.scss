@@ -1,0 +1,18 @@
+.scroll-top {
+    color: $white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 25px;
+    line-height: 60px;
+    background-color: $theme-color--default;
+    box-shadow: 0 30px 50px rgba(0,0,0,.03);
+
+    @media #{$extra-small-mobile}{
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+    }
+}

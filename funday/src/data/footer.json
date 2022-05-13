@@ -1,0 +1,38 @@
+{
+    "footerLogo": "assets/img/logo/white.png",
+    "footerDesc": "Lorem ipsum dolor sit amet consect adipisici elit, sed do eiusmod tempor incididuk ut labore et dolore magna aliqua Ut enim 126",
+    "footerLinkTitleOne": "Страницы",
+    "navListOne": [
+        {
+            "navTitle": "Главная",
+            "navUrl": "/" 
+        },
+        {
+            "navTitle": "Каталог",
+            "navUrl": "/catalog"
+        },
+        {
+            "navTitle": "Контакты",
+            "navUrl": "/contact" 
+        },
+        {
+            "navTitle": "О нас",
+            "navUrl": "/about"
+        }
+    ],
+    "footerLinkTitleTwo": "usefull link 02",
+    "navListTwo": [
+    ],
+    "footerContactWidget": {
+        "widgetTitle": "Контакты",
+        "widgetDesc": "Кремль, Москва",
+        "contactInfo": [
+            {
+                "title": "+7(499)703-00-95"
+            },
+            {
+                "title": "+7(499)703-00-96"
+            }
+        ]
+    }
+}

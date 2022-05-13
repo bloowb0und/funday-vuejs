@@ -1,0 +1,19 @@
+{
+    "contactInfo": {
+        "title": "Контактная информация",
+        "address": {
+            "icon": "ion-android-map",
+            "location": "Кремль, Россия"
+        },
+        "telephone": {
+            "icon": "ion-ios-telephone-outline",
+            "no_1": "+7(499)703-00-95",
+            "no_2": "(001) 65897 569 784)"
+        },
+        "mail": {
+            "icon": "ion-ios-email-outline",
+            "email": "infor@example.com",
+            "web": "example.com"
+        }
+    }
+}

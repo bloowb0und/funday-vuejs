@@ -1,0 +1,25 @@
+{
+    "bgImg": "assets/img/backgrounds/funfact-bg.jpg",
+    "funFacts": [
+        {
+            "icon": "assets/img/icons/funfact-project.png",
+            "counter": 598,
+            "title": "Помещений"
+        },
+        {
+            "icon": "assets/img/icons/funfact-clients.png",
+            "counter": 1280,
+            "title": "Клиентов"
+        },
+        {
+            "icon": "assets/img/icons/funfact-success.png",
+            "counter": 114,
+            "title": "Площадок"
+        },
+        {
+            "icon": "assets/img/icons/funfact-award.png",
+            "counter": 109,
+            "title": "Отзывов"
+        }
+    ]
+}

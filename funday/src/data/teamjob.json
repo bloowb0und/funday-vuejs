@@ -1,0 +1,19 @@
+{
+    "sectionTitle": "Meet Our <br> Honorable Employees.",
+    "teamJobTitle": "Open Job",
+    "image": "assets/img/team/team.jpg",
+    "teamjob": [
+        {
+            "title": "Warehouse General Laborer",
+            "desc": "here are many variations of passages"
+        },
+        {
+            "title": "General Warehouse Laborer",
+            "desc": "consectetur adipisicing elit sed"
+        },
+        {
+            "title": "Laborer Warehouse General",
+            "desc": "eiusmod tempor incididunt ut labore"
+        }
+    ]
+}

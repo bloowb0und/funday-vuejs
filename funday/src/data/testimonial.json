@@ -1,0 +1,26 @@
+{
+    "bgImg": "assets/img/backgrounds/funfact-bg.jpg",
+    "testimonialSliders": [
+        {
+            "id": 1,
+            "name": "Виктория",
+            "designation": "Студентка",
+            "thumb": "assets/img/testimonial/1.jpg",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisi elit sed do eiusmod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+            "id": 2,
+            "name": "Борис",
+            "designation": "Менеджер",
+            "thumb": "assets/img/testimonial/2.jpg",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisi elit sed do eiusmod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        },
+        {
+            "id": 3,
+            "name": "Роман",
+            "designation": "Бизнесмен",
+            "thumb": "assets/img/testimonial/3.jpg",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipisi elit sed do eiusmod tempor incididu ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+        }
+    ]
+}

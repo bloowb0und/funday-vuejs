@@ -1,0 +1,73 @@
+.error-not-found {
+    background-color: $black;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    .error-inner {
+        .image {
+            margin-bottom: 50px;
+
+            @media #{$extra-small-mobile}{
+                margin-bottom: 35px;
+            }
+            img {
+                @media #{$extra-small-mobile}{
+                    max-width: 250px;
+                }
+            }
+        }
+        .heading-h3 {
+            font-weight: 700;
+
+            @media #{$extra-small-mobile}{
+                font-size: 25px;
+            }
+        }
+        .error-text {
+            padding-top: 30px;
+
+            @media #{$extra-small-mobile}{
+                padding-top: 25px;
+            }
+            p {
+                font-size: 18px;
+                line-height: 1.9;
+                max-width: 600px;
+                margin: 0 auto;
+                @media #{$extra-small-mobile}{
+                    font-size: 16px;
+                    line-height: 1.6;
+                }
+            }
+        }
+    }
+}
+.error-button-group {
+    margin-top: 30px;
+    .btn-submit {
+        color: $white;
+        margin-right: 15px;
+        padding: 18px 30px;
+        background-color: $theme-color--default;
+        // responsive
+        @media #{$extra-small-mobile}{
+            margin-right: 0;
+            margin-bottom: 10px;
+            padding: 10px 30px;
+        }
+        &.bg-wht {
+            color: #222;
+            background-color: $white;
+            border: none;
+            &:hover {
+                background-color: $theme-color--default;
+            }
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            color: $white;
+        }
+    }
+}

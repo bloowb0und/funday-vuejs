@@ -1,0 +1,33 @@
+{
+    "id": 1,
+    "sectionTitle": "Мы - лучшие в Москве по аренде помещений",
+    "sectionSubTitle": "О нас",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+    "image": "assets/img/backgrounds/video-cta.jpg",
+    "aboutImage": "assets/img/backgrounds/about.png",
+    
+    "policy": [
+        {
+            "icon": "assets/img/icons/feature-1.png",
+            "title": "Лучший рейтинг",
+            "body": "Lorem ipsum dolor sit amet, consec tetur adipisicing elit. Officia odio eum corporis consequatur."
+        },
+        {
+            "icon": "assets/img/icons/feature-2.png",
+            "title": "Лучшие помещения",
+            "body": "Lorem ipsum dolor sit amet, consec tetur adipisicing elit. Officia odio eum corporis consequatur."
+        },
+        {
+            "icon": "assets/img/icons/feature-3.png",
+            "title": "Низкая цена",
+            "body": "Lorem ipsum dolor sit amet, consec tetur adipisicing elit. Officia odio eum corporis consequatur."
+        }
+    ],
+    "experience": {
+        "image_1": "assets/img/projects/project-1.jpg",
+        "image_2": "assets/img/projects/project-1.jpg",
+        "title": "<span>10</span>Лет опыта",
+        "desc": "ligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor ellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum atibus saepe eveniet ut et voluptates repudiandae sint et molestiae",
+        "desc2": "ligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor ellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum atibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapie"
+    }
+}

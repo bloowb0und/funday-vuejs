@@ -1,0 +1,60 @@
+$theme-color--default: #7b020e;
+$theme-color--default--light: darken($theme-color--default, 10%);
+$theme-color--red1: #DE2021;
+$theme-color--red2: #D0021B;
+$theme-color--orange1: #F6732E;
+$theme-color--orange2: #FC844B;
+$theme-color--orange3: #FF732F;
+$theme-color--blue: #0C95EC;
+$theme-color--blue-dark: rgb(6, 121, 192);
+$theme-color--violet: #7F60D1;
+$theme-color--black: #222;
+$theme-color--black2: #11202D;
+$theme-color--black3: #05103B;
+$theme-color--black4: #313131;
+
+
+$transition--cubic:  all .3s cubic-bezier(.645,.045,.355,1);
+
+$font-family-name: 'Roboto', sans-serif;
+$heading-font-family-name: 'Roboto', sans-serif;
+$poppins: 'Poppins', sans-serif;
+
+$white: #ffffff;
+$black: #000000;
+
+$body-text-color: #1d1d25;
+$body-font-weight: 400;
+$body-line-height: 1.66;
+$body-font-size: 15px;
+$body-bg-color: $white;
+
+$heading-text-color: #1d1d25;
+$heading-font-weight: 700;
+
+
+$primary:       #004395;
+$secondary:     #f9c322;
+$success:       #28a745;
+$info:          #17a2b8;
+$warning:       #ffc107;
+$danger:        #dc3545;
+$light:         #f8f9fa;
+
+$facebook: #4867AA;
+$google-plus: #DD5144;
+$instagram: #B23A94;
+$linkedin: #007BB6;
+$pinterest: #BD081B;
+$twitter: #1DA1F2;
+$skype: #00A9F0;
+$tumblr: #36465D;
+
+
+$xlmax-device: 'only screen and (min-width: 1200px) and (max-width: 1599px)';
+$laptop-device : 'only screen and (min-width: 1200px) and (max-width: 1499px)';
+$desktop-device : 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$tablet-device:'only screen and (min-width: 768px) and (max-width: 991px)';
+$large-mobile:'only screen and (max-width: 767px)';
+$small-mobile: 'only screen and (max-width: 575px)';
+$extra-small-mobile: 'only screen and (max-width: 479px)';

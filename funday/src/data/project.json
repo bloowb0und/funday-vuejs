@@ -1,0 +1,135 @@
+{
+    "sectionTitleOne": "Latest Projects",
+    "projectSlider": [
+        {
+            "id": 1,
+            "count": "1",
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet, consect adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+            "image": "assets/img/projects/1.jpg"
+        },
+        {
+            "id": 2,
+            "count": "2",
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet, consect adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+            "image": "assets/img/projects/1.jpg"
+        },
+        {
+            "id": 3,
+            "count": "3",
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet, consect adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+            "image": "assets/img/projects/1.jpg"
+        }
+    ],
+    "sectionTitleTwo": "Latest Projects",
+    "projectGrid": [
+        {
+            "id": 1,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-3.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-4.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-3.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-4.jpg"
+        },
+        {
+            "id": 8,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-3.jpg"
+        },
+        {
+            "id": 9,
+            "title": "Название",
+            "desc": "Lorem ipsum dolor sit amet consect adipisi elit sed do eiusm tempor",
+            "image": "assets/img/projects/project-1.jpg"
+        }
+    ],
+    "projectDetails": {
+        "projectDetailsImage": "assets/img/slider/slider1.jpg",
+        "projectDetailsTitle": "Название",
+        "projectDetailsDesc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem veritatis quo et ullam, ducimus itaque earum dolorem? Consectetur, et, aut. A, corporis officia eius dicta explicabo saepe nesciunt, mollitia minima, atque maiores optio cum. Atque amet unde impedit voluptate cumque distinctio minima, aspernatur nemo! Expedita in, numquam blanditiis ullam rem!</br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cum fugit officia dolores eligendi, rem. Quibusdam quasi impedit perspiciatis iure maiores, eaque numquam doloremque, quo nam soluta itaque obcaecati tempore!.</br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex, nam adipisci dolores laborum earum. Unde cum, ut nostrum nihil alias, laudantium molestiae, vitae quidem dolorem officiis ipsum. Aliquid nemo consequuntur cupiditate delectus sapiente doloribus dolorem, at suscipit, non laudantium mollitia magnam repellat atque quia! Aut, veniam, nam. Ex porro optio facilis nostrum, qui ipsa?"
+    },
+    "projectDetailsInfo": {
+        "title": "Информация",
+        "lists": [
+            {
+                "label": "Локация:",
+                "desc": "Москва"
+            },
+            {
+                "label": "Год:",
+                "desc": "2022"
+            },
+            {
+                "label": "Свободных мест:",
+                "desc": "100 людей"
+            },
+            {
+                "label": "Этаж:",
+                "desc": "1"
+            }
+        ]
+    },
+    "projectDetailsGallery": [
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        },
+        {
+            "image": "assets/img/projects/project-1.jpg"
+        }
+    ]
+}

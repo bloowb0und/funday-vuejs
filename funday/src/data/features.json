@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "icon": "assets/img/icons/feature-4.png",
+        "title": "Land Mining",
+        "desc": "Lorem ipsum dolor sit consect adipisicing elit, sed do eiusmo tempor incididu."
+    },
+    {
+        "id": 2,
+        "icon": "assets/img/icons/feature-5.png",
+        "title": "Work Management",
+        "desc": "Lorem ipsum dolor sit consect adipisicing elit, sed do eiusmo tempor incididu."
+    },
+    {
+        "id": 3,
+        "icon": "assets/img/icons/feature-6.png",
+        "title": "Material Engineering",
+        "desc": "Lorem ipsum dolor sit consect adipisicing elit, sed do eiusmo tempor incididu."
+    },
+    {
+        "id": 4,
+        "icon": "assets/img/icons/feature-7.png",
+        "title": "Power & Energy",
+        "desc": "Lorem ipsum dolor sit consect adipisicing elit, sed do eiusmo tempor incididu."
+    }
+]
