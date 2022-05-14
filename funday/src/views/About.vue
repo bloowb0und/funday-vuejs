@@ -18,7 +18,7 @@
     import Footer from '../components/Footer'
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu'
 
-    import data from '../data/about.json'
+    import data from '../dataFolder/about.json'
     export default {
         components: {
             Header,

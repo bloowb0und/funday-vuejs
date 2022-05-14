@@ -21,7 +21,7 @@
 </template>
 
 <script>
-    import data from '../data/funfact.json'
+    import data from '../dataFolder/funfact.json'
     import countTo from 'vue-count-to';
     
     export default {

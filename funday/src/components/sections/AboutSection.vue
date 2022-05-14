@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import data from '../../data/about.json'
+    import data from '../../dataFolder/about.json'
     export default {
         data () {
             return {

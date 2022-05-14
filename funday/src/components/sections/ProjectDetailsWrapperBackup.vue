@@ -46,7 +46,7 @@
 </template>
 
 <script>
-    import data from '../../data/project.json'
+    import data from '../../dataFolder/project.json'
     export default {
         data () {
             return {

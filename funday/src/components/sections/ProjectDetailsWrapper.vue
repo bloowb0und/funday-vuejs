@@ -5,26 +5,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 section-space--bottom--40">
-                        <div class="project-image"><img :src="data.projectDetails.projectDetailsImage" class="img-fluid" alt="image"></div>
+                        <div class="project-image"><img :src="project.image" class="img-fluid" alt="image"></div>
                     </div>
 
                     <div class="col-lg-4 col-12 section-space--bottom--30">
                         <div class="project-information">
-                            <h3>{{ data.projectDetailsInfo.title }}</h3>
+                            <h3>{{ project.title }}</h3>
                             <ul>
-                                <li v-for="list in data.projectDetailsInfo.lists" :key="list.id">
-                                    <strong>{{ list.label }}</strong>{{ list.desc }}
+                                <li>
+                                    <strong>Локация: </strong>{{ project.desc }}
                                 </li>
+                              <li>
+                                <strong>Год: </strong>{{ project.year }}
+                              </li>
+                              <li>
+                                <strong>Свободных мест: </strong>{{ project.places }}
+                              </li>
+                              <li>
+                                <strong>Локация: </strong>{{ project.desc }}
+                              </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="col-lg-8 col-12 section-space--bottom--30 pl-30 pl-sm-15 pl-xs-15">
-                        <div class="project-details">
-                            <h2>{{ data.projectDetails.projectDetailsTitle }}</h2>
-                            <p v-html="data.projectDetails.projectDetailsDesc">{{ data.projectDetails.projectDetailsDesc }}</p>
-                        </div>
-                    </div>
+<!--                    <div class="col-lg-8 col-12 section-space&#45;&#45;bottom&#45;&#45;30 pl-30 pl-sm-15 pl-xs-15">-->
+<!--                        <div class="project-details">-->
+<!--                            <h2>{{ dataFolder.projectDetails.projectDetailsTitle }}</h2>-->
+<!--                            <p v-html="dataFolder.projectDetails.projectDetailsDesc">{{ dataFolder.projectDetails.projectDetailsDesc }}</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <div class="col-12">
                         <div class="row row-5 image-popup" id="lightgallery">
@@ -46,13 +55,16 @@
     import 'lightgallery.js'
     import 'lightgallery.js/dist/css/lightgallery.css'
 
-    import data from '../../data/project.json'
     export default {
-        data () {
-            return {
-                data,
-                imageList: []
-            }
+      props : ['project'],
+        // dataFolder () {
+        //     return {
+        //         dataFolder,
+        //         imageList: []
+        //     }
+        // },
+        created() {
+          console.log(this.project)
         },
         mounted() {
             const el = document.getElementById('lightgallery')

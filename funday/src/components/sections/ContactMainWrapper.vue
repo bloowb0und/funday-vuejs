@@ -66,7 +66,7 @@
 </template>
 
 <script>
-    import data from '../../data/contact.json'
+    import data from '../../dataFolder/contact.json'
     export default {
         data () {
             return {

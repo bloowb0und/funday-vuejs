@@ -41,7 +41,7 @@
 
 <script>
     import ProjectGrid from '@/components/Catalog';
-    import data from '../../data/project.json'
+    import data from '../../dataFolder/project.json'
     export default {
         components: {
             ProjectGrid

@@ -37,7 +37,7 @@
 </template>
 
 <script>
-    import data from '../data/testimonial.json'
+    import data from '../dataFolder/testimonial.json'
     export default {
         data () {
             return {

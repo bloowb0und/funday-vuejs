@@ -11,7 +11,7 @@
                         <div class="col-lg-12">
                             <div class="project-item-wrapper">
                                 <div class="row">
-                                    <div class="col-lg-4 col-sm-6 col-12 section-space--bottom--30" v-for="project in data.projectGrid" :key="project.id">
+                                    <div class="col-lg-4 col-sm-6 col-12 section-space--bottom--30" v-for="project in projects" :key="project.id">
                                         <ProjectGrid :project="project" />
                                     </div>
                                 </div>
@@ -40,12 +40,12 @@
 </template>
 
 <script>
-    import data from '../data/project.json'
     import Header from '@/components/Header';
     import Breadcrumb from '../components/Breadcrumb'
     import ProjectGrid from '../components/Catalog'
     import Footer from '../components/Footer'
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
+    import ProjectService from "@/ProjectService";
 
     export default {
         components: {
@@ -56,8 +56,21 @@
             OffCanvasMobileMenu
         },
         data() {
-            return {
-                data,
+                // dataFolder,
+                // items: [
+                //     {
+                //         text: 'Главная',
+                //         to: "/"
+                //     },
+                //     {
+                //         text: 'Каталог',
+                //         active: true
+                //     }
+                // ]
+              return {
+                projects: [],
+                error:'',
+                text:'',
                 items: [
                     {
                         text: 'Главная',
@@ -68,7 +81,15 @@
                         active: true
                     }
                 ]
-            }
+              }
+          },
+      async created() {
+          try {
+            this.projects = await ProjectService.getProjects();
+            console.log(this.projects);
+          } catch(err) {
+            this.error = err.message;
+          }
         },
         metaInfo: {
             title: 'Каталог - FunDay',

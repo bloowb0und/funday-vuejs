@@ -19,7 +19,7 @@
     import Footer from '../components/Footer';
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu'
 
-    import data from '../data/slider.json'
+    import data from '../dataFolder/slider.json'
     export default {
         data () {
             return {

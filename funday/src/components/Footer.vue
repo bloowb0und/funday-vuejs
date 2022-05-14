@@ -29,7 +29,7 @@
     import FooterLink from '@/components/FooterLink.vue';
     import ContactWidget from '@/components/ContactWidget.vue';
 
-    import data from '../data/footer.json'
+    import data from '../dataFolder/footer.json'
     export default {
         components: {
             FooterAbout,
