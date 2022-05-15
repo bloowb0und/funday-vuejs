@@ -1,5 +1,5 @@
 {
-    "footerLogo": "assets/img/logo/white.png",
+    "footerLogo": "/assets/img/logo/white.png",
     "footerDesc": "Lorem ipsum dolor sit amet consect adipisici elit, sed do eiusmod tempor incididuk ut labore et dolore magna aliqua Ut enim 126",
     "footerLinkTitleOne": "Страницы",
     "navListOne": [
@@ -20,7 +20,7 @@
             "navUrl": "/about"
         }
     ],
-    "footerLinkTitleTwo": "usefull link 02",
+    "footerLinkTitleTwo": "useful link 02",
     "navListTwo": [
     ],
     "footerContactWidget": {

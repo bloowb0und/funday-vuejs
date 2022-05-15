@@ -27,18 +27,14 @@ class ProjectService {
     static getProjectsId(id) {
         return new Promise(async (resolve, reject) => {
             try {
-                // const urL = url + `/${id}`;
-                // console.log(urL);
                 const res = await axios.get(url + `/${id}`);
-                // console.log("res:");
-                // console.log(res);
-                const obj = res.data[0];
-                const finObj = obj.map(project => ({
-                    ...project,
+                const obj = res.data;
+                console.log("res:");
+                console.log(res);
+                const fin = obj.map(project => ({
+                    ...project
                 }))
-                // console.log('obj:');
-                console.log(finObj);
-                resolve(finObj)
+                resolve(fin[0]);
             }
             catch (e)
             {
