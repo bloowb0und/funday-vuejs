@@ -1,5 +1,7 @@
 const express = require('express');
 const Database = require("sqlite-async");
+const bcrypt = require('bcrypt');
+const {hash} = require("bcrypt");
 
 const router = express.Router();
 
@@ -25,6 +27,7 @@ router.get('/',async (req, res) => {
         });
 })
 
+//post
 router.get('/:id', async(req,res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
@@ -43,6 +46,28 @@ router.get('/:id', async(req,res) => {
                 return false;
             }
         })
+})
+
+//delete
+router.delete('/:id', async (req, res) => {
+    await Database.open('../funday.sqlite')
+        .then(async db => {
+            const sql = 'DELETE FROM Projects WHERE id = (?)';
+            let result = await db.run(sql, [req.params.id]);
+
+            db.close();
+
+            res.status(201).send();
+            res = true;
+        })
+        .catch(err => {
+            if (err) {
+                console.log(err.message)
+                res = false;
+                res.status(500).send();
+                return false;
+            }
+        });
 })
 
 module.exports = router;

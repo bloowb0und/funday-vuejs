@@ -25,6 +25,7 @@
                                 <strong>Локация: </strong>{{ project.desc }}
                               </li>
                             </ul>
+                          <btn></btn>
                         </div>
                     </div>
 
