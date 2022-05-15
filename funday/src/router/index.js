@@ -34,6 +34,21 @@ const routes = [
         name: 'Contact',
         component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
     },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: () => import('../views/AdminPanel.vue')
+    },
+    {
+        path: '/admin/data',
+        name: 'AdminData',
+        component: () => import('../views/AdminData.vue')
+    },
+    {
+        path: '/admin/requests',
+        name: 'AdminRequests',
+        component: () => import('../views/AdminRequests.vue')
+    },
 ]
 
 const router = new VueRouter({
