@@ -15,6 +15,10 @@ const admins = require('./routes/api/admins.js');
 
 app.use('/api/admins', admins);
 
+const rents = require('./routes/api/rents.js');
+
+app.use('/api/rents',rents);
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

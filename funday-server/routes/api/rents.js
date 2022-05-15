@@ -1,7 +1,5 @@
 const express = require('express');
 const Database = require("sqlite-async");
-const bcrypt = require('bcrypt');
-const {hash} = require("bcrypt");
 
 const router = express.Router();
 
@@ -10,7 +8,7 @@ router.get('/',async (req, res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
             //const sql = 'SELECT title,desc,image FROM Projects';
-            const sql = `SELECT * FROM Projects`;
+            const sql = `SELECT * FROM Rents`;
             let result = await db.all(sql, []);
             //console.log(result)
 
@@ -27,21 +25,25 @@ router.get('/',async (req, res) => {
         });
 })
 
-router.get('/:id', async(req,res) => {
+//post
+router.post('/', async(req,res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
-            const sql = 'SELECT title, desc, image, location, year, places, floors FROM Projects WHERE id = ' + req.params.id;
-            let result = await db.all(sql,[]);
+            const sql = `INSERT INTO Rents(name,surname,phone) VALUES(?,?,?)`;
+            let result = await db.run(sql,[req.body.name,req.body.surname, req.body.phone]);
 
             console.log(result)
             db.close();
 
-            res.send(result);
+            res.status(201).send();
+            res = true;
         })
-        .catch(err => {
-            if(err){
-                console.log(err.message);
-                res.status(500);
+        .catch((e) => {
+            if(e)
+            {
+                console.log(e.message);
+                res = false
+                res.status(500).send();
                 return false;
             }
         })

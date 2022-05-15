@@ -6,6 +6,7 @@
         <FunFact />
         <Footer />
         <OffCanvasMobileMenu />
+        <ModalWindow/>
     </div>
 </template>
 
@@ -17,6 +18,7 @@
     import FunFact from '../components/FunFact'
     import Footer from '../components/Footer'
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu'
+    import ModalWindow from '@/components/sections/ModalWindow'
 
     import data from '../dataFolder/about.json'
     export default {
@@ -26,7 +28,8 @@
             Experience,
             FunFact,
             Footer,
-            OffCanvasMobileMenu
+            OffCanvasMobileMenu,
+            ModalWindow
         },
         data() {
             return {
