@@ -2,7 +2,7 @@
     <div class="main-container">
         <Header />
         <Breadcrumb :items="items" title="Детали помещения" />
-<!--        <ProjectDetailsWrapper v-if="project" :project="project"/>-->
+        <ProjectDetailsWrapper :project="project"/>
         <Footer />
         <OffCanvasMobileMenu />
     </div>
@@ -26,11 +26,7 @@
         },
       data() {
         return {
-          project: { title: 'First', desc: 'Hello everyone', image: 'project-1.jpg', location: 'Moscow, Kasdasd',
-            year: 2015,
-            places: 10,
-            floors: 2
-          },
+          project : {},
           error:'',
           text:'',
           items: [
@@ -47,13 +43,8 @@
       },
       async beforeCreate() {
         try {
-          let project = await ProjectService.getProjectsId(this.$route.params.id);
-          this.project = project;
-          // console.log(x);
-          // this.project = x.map(prj => ({
-          //   ...prj,
-          // }))
           console.log(1);
+          ProjectService.getProjectsId(this.$route.params.id).then((x) => this.project = x);
           console.log(this.project);
         } catch(err) {
           this.error = err.message;

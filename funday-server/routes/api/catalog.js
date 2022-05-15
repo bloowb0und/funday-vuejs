@@ -10,7 +10,7 @@ router.get('/',async (req, res) => {
             //const sql = 'SELECT title,desc,image FROM Projects';
             const sql = `SELECT * FROM Projects`;
             let result = await db.all(sql, []);
-            console.log(result)
+            //console.log(result)
 
             db.close();
 
@@ -31,6 +31,7 @@ router.get('/:id', async(req,res) => {
             const sql = 'SELECT title, desc, image, location, year, places, floors FROM Projects WHERE id = ' + req.params.id;
             let result = await db.all(sql,[]);
 
+            console.log(result)
             db.close();
 
             res.send(result);
