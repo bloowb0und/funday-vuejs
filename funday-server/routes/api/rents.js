@@ -29,8 +29,15 @@ router.get('/',async (req, res) => {
 router.post('/', async(req,res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
-            const sql = `INSERT INTO Rents(name,surname,phone,project_id) VALUES(?,?,?,?)`;
-            let result = await db.run(sql,[req.body.name,req.body.surname, req.body.phone, req.body.project_id]);
+            var currentdate = new Date();
+            var datetime = currentdate.getDate() + "."
+                + (currentdate.getMonth()+1)  + "."
+                + currentdate.getFullYear() + " . "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+            const sql = `INSERT INTO Rents(name,surname,phone,project_id, date) VALUES(?,?,?,?,?)`;
+            let result = await db.run(sql,[req.body.name,req.body.surname, req.body.phone, req.body.project_id,datetime]);
 
             console.log(result);
             console.log(req.body.project_id);
