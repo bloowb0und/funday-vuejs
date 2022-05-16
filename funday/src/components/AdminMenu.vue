@@ -1,7 +1,9 @@
 <template>
   <div class="sidebar">
     <div class="sidebar-brand">
-      <img src="/assets/img/logo/white.png" alt="logo" class="sidebar-logo">
+      <router-link to="/">
+        <img src="/assets/img/logo/white.png" alt="logo" class="sidebar-logo" style="cursor: pointer;">
+      </router-link>
     </div>
     <div class="sidebar-menu">
       <ul>

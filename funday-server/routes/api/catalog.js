@@ -56,13 +56,13 @@ router.delete('/:id', async (req, res) => {
 
             db.close();
 
-            res.status(201).send();
+            res.status(200).send();
             res = true;
         })
         .catch(err => {
             if (err) {
                 console.log(err.message)
-                res = false;
+
                 res.status(500).send();
                 return false;
             }
@@ -76,13 +76,13 @@ router.put('/:id', async (req, res) => {
 
             db.close();
 
-            res.status(201).send();
+            res.status(200).send();
             res = true;
         })
         .catch(err => {
             if (err) {
                 console.log(err.message)
-                res = false;
+
                 res.status(500).send();
                 return false;
             }
@@ -103,7 +103,7 @@ router.post('/', async (req, res) => {
         .catch(err => {
             if (err) {
                 console.log(err.message)
-                res = false;
+
                 res.status(500).send();
                 return false;
             }

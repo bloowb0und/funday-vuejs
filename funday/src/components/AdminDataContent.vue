@@ -13,28 +13,28 @@
         <form id="contact-form">
           <div class="row row-10">
             <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_title" type="text" placeholder="Название">
+              <input name="con_title" type="text" placeholder="Название" required v-model="addPlaceDetails.title">
             </div>
             <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="number" placeholder="Этажей">
+              <input name="con_floors" type="number" placeholder="Этажей" required v-model="addPlaceDetails.floors">
             </div>
             <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_img" type="text" placeholder="Путь к картинке">
+              <input name="con_img" type="text" placeholder="Путь к картинке" required v-model="addPlaceDetails.image">
             </div>
             <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_location" type="text" placeholder="Локация">
+              <input name="con_location" type="text" placeholder="Локация" required v-model="addPlaceDetails.location">
             </div>
             <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_year" type="number" placeholder="Год открытия">
+              <input name="con_year" type="number" placeholder="Год открытия" required v-model="addPlaceDetails.year">
             </div>
             <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_places" type="number" placeholder="Вместимость (Мест)">
+              <input name="con_places" type="number" placeholder="Вместимость (Мест)" required v-model="addPlaceDetails.places">
             </div>
             <div class="col-12 section-space--bottom--20">
-              <input name="con_desc" type="text" placeholder="Описание">
+              <input name="con_desc" type="text" placeholder="Описание" required v-model="addPlaceDetails.desc">
             </div>
             <div class="col-12">
-              <button>Добавить</button>
+              <button @click="add" type="button">Добавить</button>
             </div>
           </div>
         </form>
@@ -45,24 +45,63 @@
         <form id="contact-form">
           <div class="row row-10">
             <div class="col-12 section-space--bottom--20">
-              <select style="padding: 0 25px" v-model="selectedPlace">
-                <option disabled value="">Выберите место</option>
+              <select style="padding: 0 25px" v-model="selectedChangePlace">
+                <option disabled value="" selected="selected">Выберите место</option>
                 <option v-for="place in places" :value="place">{{ place.title }}</option>
               </select>
             </div>
           </div>
           <div class="row row-10">
             <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="number" placeholder="Название" :value="selectedPlace.title">
+              <input name="con_floors" type="text" placeholder="Название" v-model="selectedChangePlace.title">
+            </div>
+            <div class="col-md-6 col-12 section-space--bottom--20">
+              <input name="con_floors" type="number" placeholder="Этажей" v-model="selectedChangePlace.floors">
+            </div>
+          </div>
+          <div class="row row-10">
+            <div class="col-md-6 col-12 section-space--bottom--20">
+              <input name="con_floors" type="text" placeholder="Путь к картинке" v-model="selectedChangePlace.image">
+            </div>
+            <div class="col-md-6 col-12 section-space--bottom--20">
+              <input name="con_floors" type="text" placeholder="Локация" v-model="selectedChangePlace.location">
+            </div>
+          </div>
+          <div class="row row-10">
+            <div class="col-md-6 col-12 section-space--bottom--20">
+              <input name="con_floors" type="text" placeholder="Год открытия" v-model="selectedChangePlace.year">
+            </div>
+            <div class="col-md-6 col-12 section-space--bottom--20">
+              <input name="con_floors" type="number" placeholder="Вместимость (мест)" v-model="selectedChangePlace.places">
+            </div>
+          </div>
+          <div class="row row-10">
+            <div class="col-12 section-space--bottom--20">
+              <input name="con_desc" type="text" placeholder="Описание" v-model="selectedChangePlace.desc">
             </div>
           </div>
           <div class="col-12">
-            <button @click="change" type="button">Изменить</button>
+            <button @click="change" type="button" :disabled="!selectedChangePlace">Изменить</button>
           </div>
         </form>
       </div>
       <hr>
       <h1>Удаление места</h1>
+      <div class="form-wrapper pb-4">
+        <form id="contact-form">
+          <div class="row row-10">
+            <div class="col-12 section-space--bottom--20">
+              <select style="padding: 0 25px" v-model="selectedDelPlace">
+                <option disabled value="" selected="selected">Выберите место</option>
+                <option v-for="place in places" :value="place">{{ place.title }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12">
+            <button @click="del" :disabled="!selectedDelPlace" type="button">Удалить</button>
+          </div>
+        </form>
+      </div>
     </main>
   </div>
 </template>
@@ -74,18 +113,44 @@ export default {
   name: "AdminDataContent",
   data() {
     return {
-      places: [
-        {title: 'ad', as: 'rerer4'},
-        {title: 'dad', as: '777'},
-      ],
-      selectedPlace: {},
+      places: [],
+      addPlaceDetails: {
+        title: '',
+        image: '',
+        year: '',
+        desc: '',
+        floors: '',
+        location: '',
+        places: ''
+      },
+      selectedChangePlace: '',
+      selectedDelPlace: '',
     }
   },
   methods: {
-    change(value)
-    {
-      console.log(value);
-      console.log(this.selectedPlace);
+    async add() {
+      let isEmpty = Object.values(this.addPlaceDetails).some(obj => obj === '');
+
+      if(!isEmpty) {
+        await ProjectService.postProject(this.addPlaceDetails.title, this.addPlaceDetails.desc, this.addPlaceDetails.image, this.addPlaceDetails.location, this.addPlaceDetails.year, this.addPlaceDetails.places, this.addPlaceDetails.floors);
+        this.$router.go();
+      }
+      else {
+        alert('Все поля должны быть заполнены.');
+      }
+    },
+    async change() {
+      let isEmpty = Object.values(this.selectedChangePlace).some(obj => obj === '');
+
+      if(!isEmpty) {
+        await ProjectService.putProject(this.selectedChangePlace.title, this.selectedChangePlace.desc, this.selectedChangePlace.image, this.selectedChangePlace.location, this.selectedChangePlace.year, this.selectedChangePlace.places, this.selectedChangePlace.floors, this.selectedChangePlace.id)
+        this.$router.go();
+      }
+    },
+    async del() {
+      console.log(this.selectedDelPlace);
+      await ProjectService.deleteProject(this.selectedDelPlace.id);
+      this.$router.go();
     }
   },
   async mounted() {
@@ -100,6 +165,11 @@ export default {
 
 .form-wrapper {
   margin: 0 50px;
+}
+
+button:disabled,
+button[disabled]{
+  cursor: not-allowed;
 }
 
 #contact-form {
