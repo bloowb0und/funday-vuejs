@@ -35,16 +35,12 @@
                             <p v-html="project.desc">{{ project.desc }}</p>
                         </div>
                     </div>
-
-                    <div class="col-12">
-                        <div class="row row-5 image-popup" id="lightgallery">
-                            <a :href="gallery.image" class="gallery-item single-gallery-thumb col-xl-3 col-lg-4 col-sm-6 col-12 section-space--top--10" v-for="gallery in project.image" :key="gallery.id">
-                                <img :src="gallery.image" class="img-fluid" alt="thumbnail">
-                                <span class="plus"></span>
-                            </a>
-                        </div>
+                  <div class="col-lg-8">
+                    <!-- top bar right -->
+                    <div class="top-bar-right-wrapper">
+                      <btn @click = "openModalWindow" class="ht-btn ht-btn--default d-inline-block">Забронировать</btn>
                     </div>
-
+                  </div>
                 </div>
             </div>
         </div>
@@ -63,5 +59,18 @@
             const el = document.getElementById('lightgallery')
             window.lightGallery(el)
         },
+      methods: {
+        openModalWindow() {
+          const el = document.querySelector('.modal-window-notshown');
+          el.classList.add('modal-window')
+          el.classList.remove('modal-window-notshown')
+        },
+        closeModalWindow()
+        {
+          const el = document.querySelector('.modal-window');
+          el.classList.add('modal-window-notshown');
+          el.classList.remove('modal-window');
+        }
+      },
     };
 </script>

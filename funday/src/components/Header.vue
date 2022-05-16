@@ -28,7 +28,7 @@
                         <div class="col-lg-8">
                             <!-- top bar right -->
                             <div class="top-bar-right-wrapper">
-                                <router-link to="/contact" class="ht-btn ht-btn--default d-inline-block">Забронировать</router-link>
+                                <router-link to="/contact" class="ht-btn ht-btn--default d-inline-block">Позвонить</router-link>
                             </div>
                         </div>
                     </div>
@@ -124,11 +124,11 @@
     export default {
         data() {
             return {
-                isSticky: false
+                isSticky: false,
+                isActive : true,
             }
         },
         methods: {
-            // offcanvas mobile-menu
             mobiletoggleClass(addRemoveClass, className) {
                 const el = document.querySelector('#offcanvas-menu');
                 if (addRemoveClass === 'addClass') {
@@ -137,6 +137,17 @@
                     el.classList.remove(className);
                 }
             },
+          openModalWindow() {
+              const el = document.querySelector('.modal-window-notshown');
+              el.classList.add('modal-window')
+              el.classList.remove('modal-window-notshown')
+          },
+          closeModalWindow()
+          {
+            const el = document.querySelector('.modal-window');
+            el.classList.add('modal-window-notshown');
+            el.classList.remove('modal-window');
+          }
         },
 
         mounted(){

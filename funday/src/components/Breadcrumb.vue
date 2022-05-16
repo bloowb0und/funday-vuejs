@@ -1,5 +1,5 @@
 <template>
-    <div class="breadcrumb-area bg-img" :style="{'background-image':'url(assets/img/backgrounds/funfact-bg.jpg)'}">
+    <div class="breadcrumb-area bg-img" :style="{'background-image':'url(/assets/img/backgrounds/funfact-bg.jpg)'}">
         <div class="container">
             <div class="row">
                 <div class="col">
