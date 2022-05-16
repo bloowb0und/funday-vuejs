@@ -35,7 +35,12 @@
                             <p v-html="project.desc">{{ project.desc }}</p>
                         </div>
                     </div>
-
+                  <div class="col-lg-8">
+                    <!-- top bar right -->
+                    <div class="top-bar-right-wrapper">
+                      <btn @click = "openModalWindow" class="ht-btn ht-btn--default d-inline-block">Забронировать</btn>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>
@@ -54,5 +59,18 @@
             const el = document.getElementById('lightgallery')
             window.lightGallery(el)
         },
+      methods: {
+        openModalWindow() {
+          const el = document.querySelector('.modal-window-notshown');
+          el.classList.add('modal-window')
+          el.classList.remove('modal-window-notshown')
+        },
+        closeModalWindow()
+        {
+          const el = document.querySelector('.modal-window');
+          el.classList.add('modal-window-notshown');
+          el.classList.remove('modal-window');
+        }
+      },
     };
 </script>

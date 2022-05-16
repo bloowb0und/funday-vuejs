@@ -5,6 +5,7 @@
         <ProjectDetailsWrapper :project="project"/>
         <Footer />
         <OffCanvasMobileMenu />
+        <ModalWindow :project="project"/>
     </div>
 </template>
 
@@ -15,6 +16,7 @@
     import Footer from '../components/Footer'
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
     import ProjectService from "@/ProjectService";
+    import ModalWindow from '@/components/sections/ModalWindow'
 
     export default {
         components: {
@@ -22,7 +24,8 @@
             Breadcrumb,
             ProjectDetailsWrapper,
             Footer,
-            OffCanvasMobileMenu
+            OffCanvasMobileMenu,
+            ModalWindow
         },
       data() {
         return {

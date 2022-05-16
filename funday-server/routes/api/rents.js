@@ -8,7 +8,7 @@ router.get('/',async (req, res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
             //const sql = 'SELECT title,desc,image FROM Projects';
-            const sql = `SELECT * FROM Rents`;
+            const sql = `SELECT Rents.name, Rents.surname, Rents.phone, Projects.title FROM Rents INNER JOIN Projects on Rents.project_id = Projects.id`;
             let result = await db.all(sql, []);
             //console.log(result)
 
@@ -29,10 +29,11 @@ router.get('/',async (req, res) => {
 router.post('/', async(req,res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
-            const sql = `INSERT INTO Rents(name,surname,phone) VALUES(?,?,?)`;
-            let result = await db.run(sql,[req.body.name,req.body.surname, req.body.phone]);
+            const sql = `INSERT INTO Rents(name,surname,phone,project_id) VALUES(?,?,?,?)`;
+            let result = await db.run(sql,[req.body.name,req.body.surname, req.body.phone, req.body.project_id]);
 
-            console.log(result)
+            console.log(result);
+            console.log(req.body.project_id);
             db.close();
 
             res.status(201).send();
@@ -53,7 +54,7 @@ router.post('/', async(req,res) => {
 router.delete('/:id', async (req, res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
-            const sql = 'DELETE FROM Projects WHERE id = (?)';
+            const sql = 'DELETE FROM Rents WHERE id = (?)';
             let result = await db.run(sql, [req.params.id]);
 
             db.close();

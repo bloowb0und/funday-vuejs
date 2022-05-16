@@ -2,7 +2,7 @@
   <div class="modal-window-notshown">
     <div class="modal-content">
     <div class="modal-header">
-      <h1 style = "margin-top: 8px">Забронируйте место!</h1>
+      <h1 style = "margin-top: 8px">Напишите нам!</h1>
       <p @click = "closeModalWindow">X</p>
     </div>
     <div class="modal-main">
@@ -22,14 +22,15 @@
 </template>
 
 <script>
-    import SubmitService from "@/SubmitService";
     import submitService from "@/SubmitService";
     export default {
+      props : ['project'],
       data() {
         return {
           firstName: "",
           secondName: "",
           phone: "",
+          projectId : this.project.id
         }
       },
       methods : {
@@ -39,9 +40,10 @@
           el.classList.add('modal-window-notshown');
           el.classList.remove('modal-window');
         },
-        submit() {
+        async submit() {
           this.closeModalWindow();
-          submitService.addRent(this.firstName, this.secondName, this.phone);
+          console.log(this.project);
+          await submitService.addRent(this.firstName, this.secondName, this.phone, this.project.id);
         }
       }
     }

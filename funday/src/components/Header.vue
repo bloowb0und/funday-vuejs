@@ -28,7 +28,7 @@
                         <div class="col-lg-8">
                             <!-- top bar right -->
                             <div class="top-bar-right-wrapper">
-                                <btn @click = "openModalWindow" class="ht-btn ht-btn--default d-inline-block">Забронировать</btn>
+                                <router-link to="/contact" class="ht-btn ht-btn--default d-inline-block">Позвонить</router-link>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,6 @@
             }
         },
         methods: {
-            // offcanvas mobile-menu
             mobiletoggleClass(addRemoveClass, className) {
                 const el = document.querySelector('#offcanvas-menu');
                 if (addRemoveClass === 'addClass') {
