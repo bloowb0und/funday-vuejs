@@ -44,13 +44,13 @@
                             <form id="contact-form">
                                 <div class="row row-10">
                                     <div class="col-md-6 col-12 section-space--bottom--20">
-                                        <input name="con_name" type="text" placeholder="Почта">
+                                        <input name="con_name" type="email" required placeholder="Почта" v-model="email">
                                     </div>
                                     <div class="col-md-6 col-12 section-space--bottom--20">
-                                        <input name="con_email" type="email" placeholder="Пароль">
+                                        <input name="con_email" type="password" required placeholder="Пароль" v-model="password">
                                     </div>
                                     <div class="col-12">
-                                        <button>Войти</button>
+                                        <button @click="enterAdmin" type="button">Войти</button>
                                     </div>
                                 </div>
                             </form>
@@ -67,11 +67,32 @@
 
 <script>
     import data from '../../dataFolder/contact.json'
+    import AdminService from "@/AdminService";
+
     export default {
         data () {
             return {
-                data
+                data,
+                email: '',
+                password: '',
             }
+        },
+        methods: {
+          async enterAdmin() {
+            if(!this.email || !this.password) {
+              alert('Почта или пароль невалидны!');
+              return;
+            }
+
+            const res = await AdminService.checkAdminData(this.email, this.password);
+
+            if(res)
+            {
+              await this.$router.push('/admin');
+            } else {
+              alert('Введены неверные данные!');
+            }
+          }
         }
     };
 </script>
