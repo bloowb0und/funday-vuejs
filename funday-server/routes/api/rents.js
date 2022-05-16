@@ -8,7 +8,7 @@ router.get('/',async (req, res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
             //const sql = 'SELECT title,desc,image FROM Projects';
-            const sql = `SELECT Rents.name, Rents.surname, Rents.phone, Projects.title FROM Rents INNER JOIN Projects on Rents.project_id = Projects.id`;
+            const sql = `SELECT Rents.fullname,, Rents.phone, Rents.date Projects.title FROM Rents INNER JOIN Projects on Rents.project_id = Projects.id`;
             let result = await db.all(sql, []);
             //console.log(result)
 
@@ -36,8 +36,8 @@ router.post('/', async(req,res) => {
                 + currentdate.getHours() + ":"
                 + currentdate.getMinutes() + ":"
                 + currentdate.getSeconds();
-            const sql = `INSERT INTO Rents(name,surname,phone,project_id, date) VALUES(?,?,?,?,?)`;
-            let result = await db.run(sql,[req.body.name,req.body.surname, req.body.phone, req.body.project_id,datetime]);
+            const sql = `INSERT INTO Rents(fullname, phone,project_id, date) VALUES(?,?,?,?)`;
+            let result = await db.run(sql,[req.body.fullname, req.body.phone, req.body.project_id, datetime]);
 
             console.log(result);
             console.log(req.body.project_id);

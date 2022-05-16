@@ -4,11 +4,11 @@ const url = 'http://localhost:5000/api/rents';
 
 
 class ProjectService {
-    static addRent(fname,fsurname,phoneNum, project_id)
+    static addRent(fname, phoneNum, project_id)
     {
         return new Promise(async (resolve, reject) => {
             try {
-                const res = await axios.post(url, {name: fname, surname: fsurname, phone: phoneNum, project_id: project_id });
+                const res = await axios.post(url, {fullname: fname, phone: phoneNum, project_id: project_id });
                 const obj = res.data;
                 console.log('res:');
                 console.log(res);

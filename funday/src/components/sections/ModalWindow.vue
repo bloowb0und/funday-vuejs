@@ -43,7 +43,7 @@
         async submit() {
           this.closeModalWindow();
           console.log(this.project);
-          await submitService.addRent(this.firstName, this.secondName, this.phone, this.project.id);
+          await submitService.addRent(this.firstName + ' ' + this.secondName, this.phone, this.project.id);
         }
       }
     }
