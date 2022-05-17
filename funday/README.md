@@ -1,19 +1,25 @@
 # funday
 
-## Project setup
+## FrontEnd setup
 ```
-npm install
+- npm install
+
+# Compiles and hot-reloads for development
+- npm run serve
+
+# Compiles and minifies for production
+- npm run build
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## BackEnd Setup
 
-### Compiles and minifies for production
-```
-npm run build
-```
+```bash
+# install dependencies
+$ npm install
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# serve with hot reload
+$ npm run dev
+
+# build for production and launch server
+$ npm run server
+```
