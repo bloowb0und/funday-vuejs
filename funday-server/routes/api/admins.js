@@ -60,9 +60,13 @@ router.post('/authorize',async (req, res) => {
 
             db.close();
 
+            if(result.length < 1) {
+                res.status(401).send();
+            }
+
             const verif = await verifyPassword(req.body.password, result[0].password);
 
-            if(result.length < 1 || !verif) {
+            if(!verif) {
                 res.status(401).send();
             }
 

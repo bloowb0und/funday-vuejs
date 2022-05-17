@@ -6,6 +6,8 @@
 </template>
 
 <script>
+
+
 import AdminMenu from "@/components/AdminMenu";
 import AdminRequestsContent from "@/components/AdminRequestsContent";
 

@@ -3,7 +3,7 @@
         <div class="service-grid-item__image">
             <div class="service-grid-item__image-wrapper">
                 <router-link :to="`/place/${project.id}`">
-                    <img :src="`../assets/img/projects/${project.image}`" class="img-fluid" alt="thumbnail">
+                    <img :src="`../assets/img/projects/project-${project.id}/${project.image}`" class="img-fluid" alt="thumbnail">
                 </router-link>
             </div>
 

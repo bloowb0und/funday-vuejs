@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 section-space--bottom--40">
-                        <div class="project-image"><img :src="`../assets/img/projects/${project.image}`" class="img-fluid" alt="image"></div>
+                        <div class="project-image"><img :src="`../assets/img/projects/project-${project.id}/${project.image}`" class="img-fluid" alt="image"></div>
                     </div>
 
                     <div class="col-lg-4 col-12 section-space--bottom--30">
