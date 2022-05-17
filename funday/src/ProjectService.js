@@ -2,7 +2,6 @@ const axios = require('axios');
 
 const url = 'http://localhost:5000/api/catalog';
 
-
 class ProjectService {
     static getProjects()
     {
@@ -49,10 +48,8 @@ class ProjectService {
                 const obj = res.data;
                 console.log("res:");
                 console.log(res);
-                const fin = obj.map(project => ({
-                    ...project
-                }))
-                resolve(fin[0]);
+
+                resolve(obj);
             }
             catch (e)
             {
@@ -67,10 +64,8 @@ class ProjectService {
                 const obj = res.data;
                 console.log("res:");
                 console.log(res);
-                const fin = obj.map(project => ({
-                    ...project
-                }))
-                resolve(fin[0]);
+
+                resolve(obj);
             }
             catch (e)
             {
@@ -85,10 +80,8 @@ class ProjectService {
                 const obj = res.data;
                 console.log("res:");
                 console.log(res);
-                const fin = obj.map(project => ({
-                    ...project
-                }))
-                resolve(fin[0]);
+
+                resolve(obj);
             }
             catch (e)
             {

@@ -7,10 +7,8 @@ const router = express.Router();
 router.get('/',async (req, res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
-            //const sql = 'SELECT title,desc,image FROM Projects';
-            const sql = `SELECT Rents.fullname,, Rents.phone, Rents.date Projects.title FROM Rents INNER JOIN Projects on Rents.project_id = Projects.id`;
+            const sql = `SELECT Rents.id, Rents.fullname, Rents.phone, Rents.date, Projects.title FROM Rents INNER JOIN Projects on Rents.project_id = Projects.id`;
             let result = await db.all(sql, []);
-            //console.log(result)
 
             db.close();
 
@@ -32,7 +30,7 @@ router.post('/', async(req,res) => {
             var currentdate = new Date();
             var datetime = currentdate.getDate() + "."
                 + (currentdate.getMonth()+1)  + "."
-                + currentdate.getFullYear() + " . "
+                + currentdate.getFullYear() + " "
                 + currentdate.getHours() + ":"
                 + currentdate.getMinutes() + ":"
                 + currentdate.getSeconds();
@@ -61,12 +59,13 @@ router.post('/', async(req,res) => {
 router.delete('/:id', async (req, res) => {
     await Database.open('../funday.sqlite')
         .then(async db => {
+            console.log(req.params.id);
             const sql = 'DELETE FROM Rents WHERE id = (?)';
             let result = await db.run(sql, [req.params.id]);
 
             db.close();
 
-            res.status(201).send();
+            res.status(200).send();
             res = true;
         })
         .catch(err => {

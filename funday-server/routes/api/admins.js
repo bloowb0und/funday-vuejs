@@ -19,6 +19,7 @@ router.get('/',async (req, res) => {
             if(e)
             {
                 console.log(e.message);
+
                 res.status(500);
                 return false;
             }
@@ -44,12 +45,39 @@ router.post('/',async (req, res) => {
             if(e)
             {
                 console.log(e.message);
-                res = false
+
                 res.status(500).send();
                 return false;
             }
-        })
+        });
 })
+
+router.post('/authorize',async (req, res) => {
+    await Database.open('../funday.sqlite')
+        .then(async db => {
+            const sql = `SELECT * FROM Admins WHERE email = (?)`;
+            let result = await db.all(sql, [req.body.email]);
+
+            db.close();
+
+            const verif = await verifyPassword(req.body.password, result[0].password);
+
+            if(result.length < 1 || !verif) {
+                res.status(401).send();
+            }
+
+            res.status(200).send();
+        })
+        .catch((e) => {
+            if(e)
+            {
+                console.log(e.message);
+
+                res.status(500).send();
+                return false;
+            }
+        });
+});
 
 //DELETE
 router.delete('/:id', async (req, res) => {
@@ -66,13 +94,11 @@ router.delete('/:id', async (req, res) => {
         .catch((e) => {
             if (e) {
                 console.log(e.message);
-                res = false;
                 res.status(500).send();
                 return false;
             }
         });
 })
-
 
 //hash
 async function hashPassword(originalPassword) {
@@ -86,8 +112,6 @@ async function hashPassword(originalPassword) {
         console.log(e.message);
     }
 }
-
-
 
 async function verifyPassword(password,hashPassword) {
     return await bcrypt.compare(password,hashPassword);
