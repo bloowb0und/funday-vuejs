@@ -40,67 +40,69 @@
         </form>
       </div>
       <hr>
-      <h1>Изменение места</h1>
-      <div class="form-wrapper">
-        <form id="contact-form">
-          <div class="row row-10">
-            <div class="col-12 section-space--bottom--20">
-              <select style="padding: 0 25px" v-model="selectedChangePlace">
-                <option disabled value="" selected="selected">Выберите место</option>
-                <option v-for="place in places" :value="place">{{ place.title }}</option>
-              </select>
+      <div v-if="admin.status === 1">
+        <h1>Изменение места</h1>
+        <div class="form-wrapper">
+          <form id="contact-form">
+            <div class="row row-10">
+              <div class="col-12 section-space--bottom--20">
+                <select style="padding: 0 25px" v-model="selectedChangePlace">
+                  <option disabled value="" selected="selected">Выберите место</option>
+                  <option v-for="place in places" :value="place">{{ place.title }}</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="row row-10">
-            <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="text" placeholder="Название" v-model="selectedChangePlace.title">
+            <div class="row row-10">
+              <div class="col-md-6 col-12 section-space--bottom--20">
+                <input name="con_floors" type="text" placeholder="Название" v-model="selectedChangePlace.title">
+              </div>
+              <div class="col-md-6 col-12 section-space--bottom--20">
+                <input name="con_floors" type="number" placeholder="Этажей" v-model="selectedChangePlace.floors">
+              </div>
             </div>
-            <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="number" placeholder="Этажей" v-model="selectedChangePlace.floors">
+            <div class="row row-10">
+              <div class="col-md-6 col-12 section-space--bottom--20">
+                <input name="con_floors" type="text" placeholder="Путь к картинке" v-model="selectedChangePlace.image">
+              </div>
+              <div class="col-md-6 col-12 section-space--bottom--20">
+                <input name="con_floors" type="text" placeholder="Локация" v-model="selectedChangePlace.location">
+              </div>
             </div>
-          </div>
-          <div class="row row-10">
-            <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="text" placeholder="Путь к картинке" v-model="selectedChangePlace.image">
+            <div class="row row-10">
+              <div class="col-md-6 col-12 section-space--bottom--20">
+                <input name="con_floors" type="text" placeholder="Год открытия" v-model="selectedChangePlace.year">
+              </div>
+              <div class="col-md-6 col-12 section-space--bottom--20">
+                <input name="con_floors" type="number" placeholder="Вместимость (мест)" v-model="selectedChangePlace.places">
+              </div>
             </div>
-            <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="text" placeholder="Локация" v-model="selectedChangePlace.location">
+            <div class="row row-10">
+              <div class="col-12 section-space--bottom--20">
+                <input name="con_desc" type="text" placeholder="Описание" v-model="selectedChangePlace.desc">
+              </div>
             </div>
-          </div>
-          <div class="row row-10">
-            <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="text" placeholder="Год открытия" v-model="selectedChangePlace.year">
+            <div class="col-12">
+              <button @click="change" type="button" :disabled="!selectedChangePlace">Изменить</button>
             </div>
-            <div class="col-md-6 col-12 section-space--bottom--20">
-              <input name="con_floors" type="number" placeholder="Вместимость (мест)" v-model="selectedChangePlace.places">
+          </form>
+        </div>
+        <hr>
+        <h1>Удаление места</h1>
+        <div class="form-wrapper pb-4">
+          <form id="contact-form">
+            <div class="row row-10">
+              <div class="col-12 section-space--bottom--20">
+                <select style="padding: 0 25px" v-model="selectedDelPlace">
+                  <option disabled value="" selected="selected">Выберите место</option>
+                  <option v-for="place in places" :value="place">{{ place.title }}</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="row row-10">
-            <div class="col-12 section-space--bottom--20">
-              <input name="con_desc" type="text" placeholder="Описание" v-model="selectedChangePlace.desc">
+            <div class="col-12">
+              <button @click="del" :disabled="!selectedDelPlace" type="button">Удалить</button>
             </div>
-          </div>
-          <div class="col-12">
-            <button @click="change" type="button" :disabled="!selectedChangePlace">Изменить</button>
-          </div>
-        </form>
-      </div>
-      <hr>
-      <h1>Удаление места</h1>
-      <div class="form-wrapper pb-4">
-        <form id="contact-form">
-          <div class="row row-10">
-            <div class="col-12 section-space--bottom--20">
-              <select style="padding: 0 25px" v-model="selectedDelPlace">
-                <option disabled value="" selected="selected">Выберите место</option>
-                <option v-for="place in places" :value="place">{{ place.title }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-12">
-            <button @click="del" :disabled="!selectedDelPlace" type="button">Удалить</button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </main>
   </div>
@@ -108,6 +110,7 @@
 
 <script>
 import ProjectService from "@/ProjectService";
+import LogsService from "@/LogsService";
 
 export default {
   name: "AdminDataContent",
@@ -127,12 +130,16 @@ export default {
       selectedDelPlace: '',
     }
   },
+  props: [
+    'admin',
+  ],
   methods: {
     async add() {
       let isEmpty = Object.values(this.addPlaceDetails).some(obj => obj === '');
 
       if(!isEmpty) {
         await ProjectService.postProject(this.addPlaceDetails.title, this.addPlaceDetails.desc, this.addPlaceDetails.image, this.addPlaceDetails.location, this.addPlaceDetails.year, this.addPlaceDetails.places, this.addPlaceDetails.floors);
+        await LogsService.postLog(this.admin.id, `Added ${this.addPlaceDetails.title} place.`)
         this.$router.go();
       }
       else {
@@ -144,12 +151,14 @@ export default {
 
       if(!isEmpty) {
         await ProjectService.putProject(this.selectedChangePlace.title, this.selectedChangePlace.desc, this.selectedChangePlace.image, this.selectedChangePlace.location, this.selectedChangePlace.year, this.selectedChangePlace.places, this.selectedChangePlace.floors, this.selectedChangePlace.id)
+        await LogsService.postLog(this.admin.id, `Changed ${this.selectedChangePlace.title} place.`);
         this.$router.go();
       }
     },
     async del() {
       console.log(this.selectedDelPlace);
       await ProjectService.deleteProject(this.selectedDelPlace.id);
+      await LogsService.postLog(this.admin.id, `Delete ${this.selectedChangePlace.title} place.`);
       this.$router.go();
     }
   },

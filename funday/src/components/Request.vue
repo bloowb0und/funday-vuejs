@@ -23,6 +23,7 @@
 
 <script>
 import SubmitService from "@/SubmitService";
+import LogsService from "@/LogsService";
 
 export default {
   name: "Request",
@@ -31,11 +32,13 @@ export default {
       'date',
       'title',
       'fullname',
-      'phone'
+      'phone',
+      'adminId',
   ],
   methods: {
     async deleteRequest() {
       await SubmitService.delRent(this.id);
+      await LogsService.postLog(this.adminId, `Deleted ${this.id} request.`);
       this.$router.go();
     }
   },

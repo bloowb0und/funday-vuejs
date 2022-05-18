@@ -8,7 +8,7 @@
       </div>
     </header>
     <main>
-      <Request class="request" v-for="request in requests" :id="request.id" :title="request.title" :date="request.date" :fullname="request.fullname" :phone="request.phone" />
+      <Request class="request" v-for="request in requests" :id="request.id" :title="request.title" :date="request.date" :fullname="request.fullname" :phone="request.phone" :adminId="admin.id" />
       <h3 v-if="requests.length < 1" style="margin-top: 20px;">На данный момент нет необработанных заявок.</h3>
     </main>
   </div>
@@ -23,6 +23,9 @@ export default {
   components: {
     Request,
   },
+  props: [
+    'admin',
+  ],
   data() {
     return {
       requests: [],

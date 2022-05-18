@@ -1,7 +1,7 @@
 <template>
   <div class="admin-panel">
-    <AdminMenu />
-    <AdminRequestsContent />
+    <AdminMenu :id="admin.id" />
+    <AdminRequestsContent :id="admin.id" />
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 
 import AdminMenu from "@/components/AdminMenu";
 import AdminRequestsContent from "@/components/AdminRequestsContent";
+import AdminService from "@/AdminService";
 
 export default {
   name: "AdminRequests",
@@ -17,12 +18,20 @@ export default {
     AdminMenu,
     AdminRequestsContent,
   },
+  data() {
+    return {
+      admin: {},
+    }
+  },
   metaInfo: {
     title: 'Панель администратора (Заявки) - FunDay',
     htmlAttrs: {
       lang: 'ru',
       amp: true
     }
+  },
+  async created() {
+    this.admin = await AdminService.getAdminsId(this.$route.params.id);
   }
 }
 </script>

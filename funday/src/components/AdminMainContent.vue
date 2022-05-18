@@ -9,6 +9,7 @@
     </header>
     <main>
       <h1>Добро пожаловать в админ-панель</h1>
+      <h2>{{ email }}</h2>
       <h4>В меню слева выберите интересующий раздел:</h4>
       <div class="pages">
         <p>Данные - изменение данных в каталоге</p>
@@ -21,6 +22,9 @@
 <script>
 export default {
   name: "AdminContent",
+  props: [
+    'email',
+  ],
 }
 </script>
 

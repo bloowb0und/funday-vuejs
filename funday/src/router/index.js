@@ -35,17 +35,17 @@ const routes = [
         component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
     },
     {
-        path: '/admin',
+        path: '/admin/:id',
         name: 'Admin',
         component: () => import('../views/AdminPanel.vue')
     },
     {
-        path: '/admin/data',
+        path: '/admin/data/:id',
         name: 'AdminData',
         component: () => import('../views/AdminData.vue')
     },
     {
-        path: '/admin/requests',
+        path: '/admin/requests/:id',
         name: 'AdminRequests',
         component: () => import('../views/AdminRequests.vue')
     },

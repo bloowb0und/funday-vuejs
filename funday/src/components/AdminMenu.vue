@@ -7,9 +7,9 @@
     </div>
     <div class="sidebar-menu">
       <ul>
-        <AdminSidebarElement title="Главная" href="/admin" />
-        <AdminSidebarElement title="Данные" href="/admin/data" />
-        <AdminSidebarElement title="Заявки" href="/admin/requests" />
+        <AdminSidebarElement title="Главная" :href="`/admin/${this.id}`" />
+        <AdminSidebarElement title="Данные" :href="`/admin/data/${this.id}`" />
+        <AdminSidebarElement title="Заявки" :href="`/admin/requests/${this.id}`" />
       </ul>
     </div>
   </div>
@@ -23,6 +23,9 @@ export default {
   components: {
     AdminSidebarElement
   },
+  props: [
+    'id',
+  ],
 }
 </script>
 
